@@ -1,13 +1,17 @@
 import { DetailsContainer,SummaryContainer,Title,ImageContainer,BasicInfo,BookTicketButton } from "./MovieDetailsStyles";
 import Modal from "./Modal"
 import {useState} from "react"
+import { Redirect } from "react-router";
 
 export default function MovieDetailsContainer({movie})
 {
+    
     const[open,setOpen]=useState(false)
     function handler(){
         setOpen(false)
     }
+    if(movie)
+    {
     return (
         <DetailsContainer>
             <ImageContainer>
@@ -42,5 +46,10 @@ export default function MovieDetailsContainer({movie})
 
         </DetailsContainer>
     )
+    }
+    else
+    {
+        return <Redirect to=""></Redirect>
+    }
 }
 
